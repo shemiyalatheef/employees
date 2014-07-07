@@ -1,0 +1,59 @@
+<%= simple_form_for @employee do |f| %>
+  <p>
+          <%= f.input :firstname %>
+  </p>
+
+  <p>
+       <%= f.input :lastname %>
+  </p>
+ 
+  <p>
+      <%= f.input :address, as: :text %>
+  </p>
+  <p>Gender</p>
+  <p>
+     <%= f.radio_button :gender, 'male', :checked => true %> 
+	  <%= label :gender_male, 'Male' %>
+	  <%= f.radio_button :gender, 'female' %>
+	  <%= label :gender_male, 'female' %>
+
+  </p>
+
+	<p>
+		<%= f.label :languages %><br>
+		<%= f.check_box :languages %>english
+		<%= f.check_box :languages %>hindi
+		<%= f.check_box :languages %>malayalam
+		<%= f.check_box :languages %>tamil
+	</p>
+
+	 <p>
+       <%= f.input :phonenumber %>
+ 	 </p>
+
+ 	<p>Location</p>
+  	 	<p>
+		<%= f.select :location, options_for_select([["Select"], "kerala", "tamilnadu","karnadaka"]) %>
+		</p>
+	<p>
+
+	 <%= f.input :dateofbirth, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, discard_day: true,
+                              order: [:month, :year] %>
+
+    <p>
+       <%= f.input :pincode %>
+ 	 </p>  
+
+ 	 <p>
+       <%= f.input :email, placeholder: 'user@domain.com' %>
+ 	 </p>
+
+ 	 <p>
+       <%= f.input :password, hint: 'No special characters.' %>
+ 	 </p>                
+
+ 	  <p>
+ 	  <%= f.button :submit %>
+ 	  </p>
+<% end %>
